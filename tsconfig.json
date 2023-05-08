@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "module": "esnext",
+    "target": "es2017",
+    "lib": ["es6", "dom", "esnext.asynciterable", "es2017"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@containers/*": ["./src/containers/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "scripts",
+    "coverage",
+    "acceptance-tests",
+    "webpack.config.js",
+    "babel.config.js",
+    "babel.config.js",
+    "src/setupTests.ts"
+  ]
+}
