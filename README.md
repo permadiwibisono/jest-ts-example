@@ -1,4 +1,5 @@
 # jest-ts-example
+
 react, babel, webpack, typescript and jest example
 
 ## Commands
@@ -41,4 +42,5 @@ npm run typecheck
 ```
 
 ### Feature
+
 [WIP]

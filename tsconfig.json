@@ -26,15 +26,5 @@
       "@containers/*": ["./src/containers/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "scripts",
-    "coverage",
-    "acceptance-tests",
-    "webpack.config.js",
-    "babel.config.js",
-    "babel.config.js",
-    "src/setupTests.ts"
-  ]
+  "exclude": ["node_modules", "dist", "scripts", "coverage", "acceptance-tests", "*.js", "src/setupTests.ts"]
 }

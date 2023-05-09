@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
@@ -19,19 +20,15 @@ if (process.env.NODE_ENV === "production") {
 
 let plugins = [
   new MiniCssExtractPlugin({
-    filename:
-      mode === "development" && hot
-        ? "[name].css"
-        : "[name].[contenthash:8].css",
-    chunkFilename:
-      mode === "development" && hot ? "[id].css" : "[id].[contenthash:8].css",
+    filename: mode === "development" && hot ? "[name].css" : "[name].[contenthash:8].css",
+    chunkFilename: mode === "development" && hot ? "[id].css" : "[id].[contenthash:8].css"
   }),
   new CopyWebpackPlugin({
-    patterns: [{ from: "./src/static", to: outDir }],
+    patterns: [{from: "./src/static", to: outDir}]
   }),
   new HtmlWebpackPlugin({
-    template: "./src/index.html",
-  }),
+    template: "./src/index.html"
+  })
 ];
 
 if (hot) {
@@ -47,7 +44,7 @@ module.exports = {
     filename: "[name].[contenthash:8].js",
     path: outDir,
     assetModuleFilename: "assets/[hash][ext][query]",
-    clean: true,
+    clean: true
   },
   optimization: {
     moduleIds: "deterministic",
@@ -58,15 +55,15 @@ module.exports = {
           name: "styles",
           type: "css/mini-extract",
           chunks: "all",
-          enforce: true,
+          enforce: true
         },
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: "vendors",
-          chunks: "all",
-        },
-      },
-    },
+          chunks: "all"
+        }
+      }
+    }
   },
 
   module: {
@@ -76,9 +73,9 @@ module.exports = {
         type: "asset",
         parser: {
           dataUrlCondition: {
-            maxSize: 30 * 1024, // reach max size until 30kb
-          },
-        },
+            maxSize: 30 * 1024 // reach max size until 30kb
+          }
+        }
       },
       {
         test: /\.(s[ac]|c)ss$/i,
@@ -91,14 +88,14 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: {
-                exportLocalsConvention: "camelCaseOnly",
-              },
-            },
+                exportLocalsConvention: "camelCaseOnly"
+              }
+            }
           },
           "postcss-loader",
           // Compiles Sass to CSS
-          "sass-loader",
-        ],
+          "sass-loader"
+        ]
       },
       {
         test: /\.(s[ac]|c)ss$/i,
@@ -109,8 +106,8 @@ module.exports = {
           "css-loader",
           "postcss-loader",
           // Compiles Sass to CSS
-          "sass-loader",
-        ],
+          "sass-loader"
+        ]
       },
       {
         test: /\.[jt]sx?$/,
@@ -118,16 +115,12 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            plugins: [
-              mode === "development" &&
-                hot &&
-                require.resolve("react-refresh/babel"),
-            ].filter(Boolean),
-            cacheDirectory: true,
-          },
-        },
-      },
-    ],
+            plugins: [mode === "development" && hot && require.resolve("react-refresh/babel")].filter(Boolean),
+            cacheDirectory: true
+          }
+        }
+      }
+    ]
   },
 
   plugins,
@@ -135,18 +128,18 @@ module.exports = {
   resolve: {
     alias: {
       "@components": path.resolve(__dirname, "src/components/"),
-      "@containers": path.resolve(__dirname, "src/containers/"),
+      "@containers": path.resolve(__dirname, "src/containers/")
     },
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"]
   },
 
   devtool: mode === "development" ? "inline-source-map" : "source-map",
   devServer: {
     static: {
-      directory: outDir,
+      directory: outDir
     },
     hot,
     compress: true,
-    port: PORT,
-  },
+    port: PORT
+  }
 };
