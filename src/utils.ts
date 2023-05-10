@@ -1,4 +1,4 @@
-function getFormattedValue(value: string, language = "en-US") {
+export function getFormattedValue(value: string, language = "en-US") {
   let formattedValue = parseFloat(value).toLocaleString(language, {
     useGrouping: true,
     maximumFractionDigits: 6
@@ -12,5 +12,3 @@ function getFormattedValue(value: string, language = "en-US") {
   }
   return formattedValue;
 }
-
-export { getFormattedValue };
