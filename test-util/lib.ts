@@ -1,4 +1,5 @@
 import { render as rtlRender } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import * as themes from "../src/themes";
 import Wrapper from "./wrapper";
 
@@ -9,4 +10,4 @@ function render(ui: React.ReactElement, { theme = themes.dark, ...options } = {}
 
 export * from "@testing-library/react";
 // override the built-in render with our own
-export { render };
+export { render, userEvent };
