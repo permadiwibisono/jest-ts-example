@@ -24,7 +24,7 @@ let plugins = [
     chunkFilename: mode === "development" && hot ? "[id].css" : "[id].[contenthash:8].css"
   }),
   new CopyWebpackPlugin({
-    patterns: [{from: "./src/static", to: outDir}]
+    patterns: [{ from: "./src/static", to: outDir }]
   }),
   new HtmlWebpackPlugin({
     template: "./src/index.html"

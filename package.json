@@ -35,7 +35,8 @@
       "prettier -w"
     ],
     "**/*.{js,ts,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "jest --findRelatedTests"
     ]
   },
   "devDependencies": {
@@ -44,7 +45,11 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.5",
     "@emotion/babel-preset-css-prop": "^11.11.0",
+    "@emotion/jest": "^11.11.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.1",
     "@types/node": "^20.1.0",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
@@ -56,7 +61,10 @@
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "html-webpack-plugin": "^5.5.1",
+    "husky": "^7.0.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^13.2.2",
     "mini-css-extract-plugin": "^2.7.5",
     "postcss": "^8.4.23",
@@ -67,11 +75,11 @@
     "rimraf": "^5.0.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
+    "ts-jest": "^29.1.0",
     "typescript": "^5.0.4",
     "webpack": "^5.82.0",
     "webpack-cli": "^5.1.0",
-    "webpack-dev-server": "^4.15.0",
-    "husky": "^7.0.0"
+    "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",

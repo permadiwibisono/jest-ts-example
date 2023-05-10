@@ -13,4 +13,4 @@ function getFormattedValue(value: string, language = "en-US") {
   return formattedValue;
 }
 
-export {getFormattedValue};
+export { getFormattedValue };

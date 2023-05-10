@@ -1,4 +1,4 @@
-import {Suspense, lazy, useEffect, useReducer} from "react";
+import { Suspense, lazy, useEffect, useReducer } from "react";
 import styles from "./calculator.module.css";
 
 interface CalcState {
@@ -10,7 +10,7 @@ interface CalcState {
 
 const CalculatorDisplay = lazy(() => import("@components/calculator-display"));
 
-function CalculatorKey({className = "", ...props}) {
+function CalculatorKey({ className = "", ...props }) {
   return <button className={`${styles.calculatorKey} ${className}`} {...props} />;
 }
 
@@ -23,7 +23,7 @@ const CalculatorOperations = {
 };
 
 function calcReducer(currentState: CalcState, newState: Partial<CalcState>) {
-  return {...currentState, ...newState};
+  return { ...currentState, ...newState };
 }
 
 function Calculator() {
@@ -33,10 +33,10 @@ function Calculator() {
     operator: null,
     waitingForOperand: false
   });
-  const {value, displayValue, operator, waitingForOperand} = state;
+  const { value, displayValue, operator, waitingForOperand } = state;
 
   function handleKeyDown(event: KeyboardEvent) {
-    let {key} = event;
+    let { key } = event;
 
     if (key === "Enter") key = "=";
 
@@ -164,7 +164,7 @@ function Calculator() {
 
   return (
     <div className={styles.calculator}>
-      <Suspense fallback={<div style={{height: 120}}>Loading display...</div>}>
+      <Suspense fallback={<div style={{ height: 120 }}>Loading display...</div>}>
         <CalculatorDisplay value={displayValue} />
       </Suspense>
       <div className={styles.calculatorKeypad}>

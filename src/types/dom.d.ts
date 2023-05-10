@@ -5,10 +5,10 @@ declare module "*.svg";
 declare module "*.gif";
 
 declare module "*.css" {
-  const content: {[className: string]: string};
+  const content: { [className: string]: string };
   export = content;
 }
 declare module "*.scss" {
-  const content: {[className: string]: string};
+  const content: { [className: string]: string };
   export = content;
 }
